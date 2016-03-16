@@ -1,0 +1,48 @@
+starting build
+
+**********************************************************************
+
+Test build
+build project using make
+
+**********************************************************************
+Trying to clean project using make clean
+make clean
+make: *** No rule to make target `clean'.  Stop.
+Trying to build project using make
+make
+make: *** No targets specified and no makefile found.  Stop.
+Trying to build using gcc
+gcc -O -Wall -o fastsort fastsort.c -I/afs/cs.wisc.edu/p/course/cs537-remzi/ta/tests/1a
+
+
+test build PASSED
+ (build project using make)
+
+starting misskeys
+
+**********************************************************************
+
+Test misskeys
+missing keys in some lines
+
+**********************************************************************
+Running fastsort
+/tmp/tmpD9cYMC/p/fastsort -5 /afs/cs.wisc.edu/p/course/cs537-remzi/ta/tests/1a/input/missing_keys
+Checking output
+
+
+test misskeys PASSED (10 of 10)
+ (missing keys in some lines)
+
+**********************************************************************
+Summary:
+test build PASSED
+ (build project using make)
+
+test misskeys PASSED (10 of 10)
+ (missing keys in some lines)
+
+Passed 2 of 2 tests.
+Overall 2 of 2
+Points 10 of 10

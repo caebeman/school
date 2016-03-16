@@ -1,0 +1,57 @@
+#empty- checks for an empty file
+#command
+./fastsort empty
+
+#one- sort on one record
+#command
+./fastsort one
+
+#five1- checks for 5 records w/o any key
+#command
+./fastsort five1
+
+#five2- checks for 5 records with a key
+#command
+./fastsort -2 five2
+
+#ten- checks for 10 records with key
+#command
+./fastsort -2 ten
+
+#missing_key-  checks for missing keys in some lines
+#command
+./fastsort -5 missing_key
+
+#duptest- checks for the duplicate record in file with a key
+#command
+./fastsort -2 duptest
+
+#duptest_missing_key- checks for the duplicate record in file with some lines missing the key
+#command
+./fastsort -5 duptest2_missing_key
+
+#extraspaces_noargs: some words have extra spaces
+#command
+./fastsort  extraspaces_noargs
+
+#extraspaces_args- some words have extra spaces where there is also  a key
+#command
+./fastsort -4 extraspaces_args
+
+#toolong- a line with more than 128 chars
+#command
+./fastsort toolong
+
+#invalid_file- opening an invalid file
+#command
+./fastsort random        
+
+
+
+
+
+
+
+
+
+

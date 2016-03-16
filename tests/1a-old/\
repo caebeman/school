@@ -1,0 +1,45 @@
+import os
+from time import time
+import toolspath
+from testing.test import *
+from check import check_sorted
+import subprocess
+import sys
+
+rootDir = '/u/c/s/cs537-1/handin/'
+gradeDir = ["/u/c/s/cs537-1/ta/tests/3b/"]
+dir_3b = 'p3/xv6'
+
+class UserTestFiles(Test):
+    name = "usertestfiles"
+    description = "check if test files exist"
+    point_value = 10
+    timeout = 40
+
+    def run(self):
+        num_arg = len(sys.argv)
+        if num_arg < 2:
+            print("Provide handin directory as an argument")
+        else:
+            handinDir = sys.argv[1]
+            rootDir = os.path.join(rootDir, handinDir)
+            print(rootDir)
+            for dirName in os.listdir(rootDir):
+                tempRoot = os.path.join(rootDir,dirName,dir_3b)
+                redundantRoot = os.path.join(tempRoot,'xv6/')
+                if os.path.isdir(redundantRoot):
+                    #print('Found directory: %s' % redundantRoot)
+                    tempRoot = redundantRoot
+                #else:
+                    #print('Found directory: %s' % tempRoot)
+
+                testfileList = ["null.c","null-syscall.c","badaddress-syscall.c","small-stack.c","stack-growth.c","fault.c","malloc.c","overcommit-heap.c","overcommit-stack.c"]
+                for dName, subdirList, fileList in os.walk(tempRoot):
+                    print('Found directory: %s' % dName)
+                    for fname in fileList:
+                        if fname in testfileList:
+                            testfileList.remove(fname)
+
+                print('Size of testfileList: %d' % len(testfileList))
+
+test_files = [UserTestFiles]
